@@ -26,5 +26,6 @@ routes.get("/health", (req, res) => {
 routes.use(AuthenticationMiddleware);
 
 routes.put("/user", UserController.update);
+routes.delete("/user", UserController.delete);
 
 module.exports = routes;
