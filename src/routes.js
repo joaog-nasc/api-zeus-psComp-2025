@@ -27,5 +27,6 @@ routes.use(AuthenticationMiddleware);
 
 routes.put("/user", UserController.update);
 routes.delete("/user", UserController.delete);
+routes.get("/user-profile", UserController.userProfile);
 
 module.exports = routes;
