@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "5f02192f-2822-4eba-9968-5641bbe6117d",
+		"name": "zeus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44788648",
+		"_collection_link": "https://crimson-comet-4295465.postman.co/workspace/Jo%C3%A3o-Nasc.'s-Workspace~799a380d-0c8e-4e4d-8c80-dc5f5cc214bf/collection/44788648-5f02192f-2822-4eba-9968-5641bbe6117d?action=share&source=collection_link&creator=44788648"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"João Gabriel\",\r\n  \"user_name\": \"joaogabriel\",\r\n  \"email\": \"joao@gmail.com\",\r\n  \"role\": \"admin\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzYWFhNjI4MDY1NWVlMDRmNGI3YTFjMzg0NGRkODgyNjpmMSIsImlhdCI6MTc0Nzc5MDI1OCwiZXhwIjoxNzQ4Mzk1MDU4fQ.cGD-upxZ2veOhwjCVFtDHcPdphjRyrhClzSGE2Sput8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/user-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTE2ZGI3Yjg1ODBlNDkxOTJhMjVlYWJjNTQxMWRiMzplZSIsImlhdCI6MTc0NzY5OTQzOCwiZXhwIjoxNzQ4MzA0MjM4fQ.4zpeAD3XWwbSTOUdKrWd0SqoaKegFJwrHjiXiSuXRSg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"João Gabriel\",\r\n  \"role\": \"member\",\r\n  \"old_password\": \"123456\",\r\n  \"new_password\": \"123\",\r\n  \"confirm_new_password\": \"123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTE2ZGI3Yjg1ODBlNDkxOTJhMjVlYWJjNTQxMWRiMzplZSIsImlhdCI6MTc0NzY5OTQzOCwiZXhwIjoxNzQ4MzA0MjM4fQ.4zpeAD3XWwbSTOUdKrWd0SqoaKegFJwrHjiXiSuXRSg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_name\": \"joaogabriel\",\r\n  \"email\": \"joao@gmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meu upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzYWFhNjI4MDY1NWVlMDRmNGI3YTFjMzg0NGRkODgyNjpmMSIsImlhdCI6MTc0Nzc5MDI1OCwiZXhwIjoxNzQ4Mzk1MDU4fQ.cGD-upxZ2veOhwjCVFtDHcPdphjRyrhClzSGE2Sput8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1f035e69-94d5-4e20-92cf-6d8209b95486"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NDdjMzBiMWYyMDZhZDFhOGEwM2RiMDFkOGVjYWFmNDo1ZCIsImlhdCI6MTc0NzY5Mzk0NCwiZXhwIjoxNzQ4Mjk4NzQ0fQ.x4ecZzAvELlbl0ZKeNHx08eamU3lENQwFB8b_GlxwnI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
