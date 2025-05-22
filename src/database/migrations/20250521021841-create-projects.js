@@ -19,7 +19,6 @@ module.exports = {
       },
       status: {
         type: Sequelize.STRING,
-        defaultValue: "em_andamento",
       },
       owner_id: {
         type: Sequelize.INTEGER,

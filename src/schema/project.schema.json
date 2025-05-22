@@ -1,0 +1,18 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "createProjectSchema",
+    "type":"object",
+    "properties": {
+        "title":{
+            "type":"string"
+        },
+        "description":{
+            "type":"text"
+        },
+        "status":{
+            "type":"string"
+        }
+    },
+    "required": ["title", "description", "status"]
+}
+
