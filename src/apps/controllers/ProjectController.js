@@ -81,6 +81,29 @@ class ProjectController {
 
     return res.status(200).json({ message: "Project updated!" });
   }
+
+  async listMyProjects(req, res) {
+    const allProjects = await Projects.findAll({
+      where: {
+        owner_id: req.userId,
+      },
+    });
+
+    if (!allProjects) {
+      return res.status(400).json({ message: "Failed to list all projects" });
+    }
+
+    const formattedData = [];
+    for (const item of allProjects) {
+      formattedData.push({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        status: item.status,
+      });
+    }
+    return res.status(200).json({ data: formattedData });
+  }
 }
 
 module.exports = new ProjectController();

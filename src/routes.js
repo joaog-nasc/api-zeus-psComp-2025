@@ -43,5 +43,6 @@ routes.post(
 );
 routes.delete("/project/:id", ProjectController.delete);
 routes.put("/project/:id", ProjectController.update);
+routes.get("/list-my-projects", ProjectController.listMyProjects);
 
 module.exports = routes;
