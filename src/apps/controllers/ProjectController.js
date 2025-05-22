@@ -17,6 +17,40 @@ class ProjectController {
 
     return res.status(200).json({ data: { title, description, status } });
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const verifyProject = await Projects.findOne({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!verifyProject) {
+      return res.status(404).json({ message: "Project does not exists!" });
+    }
+
+    if (verifyProject.owner_id != req.userId) {
+      return res.status(401).json({
+        message: "You dont't have persmission to delete this project!",
+      });
+    }
+
+    const deletedProject = await Projects.destroy({
+      where: {
+        id,
+      },
+    });
+
+    if (!deletedProject) {
+      return res
+        .status(400)
+        .json({ message: "Failed to delete this project!" });
+    }
+
+    return res.status(200).json({ message: "Project deleted!" });
+  }
 }
 
 module.exports = new ProjectController();

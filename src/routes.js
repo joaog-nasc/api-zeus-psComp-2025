@@ -41,5 +41,6 @@ routes.post(
   schemaValidator(projectSchema),
   ProjectController.create
 );
+routes.delete("/delete-project/:id", ProjectController.delete);
 
 module.exports = routes;
