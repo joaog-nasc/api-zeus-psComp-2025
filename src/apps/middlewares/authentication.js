@@ -3,7 +3,6 @@ const { decrypt } = require("../../utils/crypt");
 
 const verifyJwt = async (req, res, next) => {
   const authHeader = req.headers.authorization;
-  console.log("Token recebido:", authHeader);
 
   if (!authHeader) {
     return res.status(401).json({ message: "Unset token!" });

@@ -37,10 +37,11 @@ routes.get("/user-profile", UserController.userProfile);
 routes.post("/upload", upload.single("image"), FileController.upload);
 
 routes.post(
-  "/new-project",
+  "/project",
   schemaValidator(projectSchema),
   ProjectController.create
 );
-routes.delete("/delete-project/:id", ProjectController.delete);
+routes.delete("/project/:id", ProjectController.delete);
+routes.put("/project/:id", ProjectController.update);
 
 module.exports = routes;

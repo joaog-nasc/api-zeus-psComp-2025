@@ -51,6 +51,36 @@ class ProjectController {
 
     return res.status(200).json({ message: "Project deleted!" });
   }
+
+  async update(req, res) {
+    const { id } = req.params;
+
+    const verifyProject = await Projects.findOne({
+      where: {
+        id,
+      },
+    });
+
+    if (!verifyProject) {
+      return res.status(404).json({ message: "Project does not exists!" });
+    }
+
+    if (verifyProject.owner_id != req.userId) {
+      return res.status(401).json({
+        message: "You dont't have persmission to delete this project!",
+      });
+    }
+
+    const projectUpdate = await Projects.update(req.body, { where: { id } });
+
+    if (!projectUpdate) {
+      return res
+        .status(400)
+        .json({ message: "Failed to update this project!" });
+    }
+
+    return res.status(200).json({ message: "Project updated!" });
+  }
 }
 
 module.exports = new ProjectController();
