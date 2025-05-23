@@ -1,4 +1,5 @@
 const Projects = require("../models/Projects");
+const Users = require("../models/Users");
 
 class ProjectController {
   async create(req, res) {
@@ -104,6 +105,23 @@ class ProjectController {
     }
     return res.status(200).json({ data: formattedData });
   }
+
+  async listAllProjects(req, res) {
+    const allProjects = await Projects.findAll({
+      attributes: ["id", "title", "description", "status"],
+      include: [
+        {
+          model: Users,
+          as: "user",
+          required: true,
+          attributes: ["user_name", "id"],
+        },
+      ],
+    });
+
+    return res.status(200).json({ data: allProjects });
+  }
+  1;
 }
 
 module.exports = new ProjectController();
