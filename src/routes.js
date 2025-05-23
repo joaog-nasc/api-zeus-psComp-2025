@@ -33,17 +33,19 @@ routes.use(AuthenticationMiddleware);
 routes.put("/user", UserController.update);
 routes.delete("/user", UserController.delete);
 routes.get("/user-profile", UserController.userProfile);
+routes.get("/all-users", UserController.listAllUsers);
 
 routes.post("/upload", upload.single("image"), FileController.upload);
 
 routes.post(
-  "/project",
+  "/projects",
   schemaValidator(projectSchema),
   ProjectController.create
 );
-routes.delete("/project/:id", ProjectController.delete);
-routes.put("/project/:id", ProjectController.update);
-routes.get("/list-my-projects", ProjectController.listMyProjects);
-routes.get("/all-projects", ProjectController.listAllProjects);
+routes.put("/projects/:id", ProjectController.update);
+routes.delete("/projects/:id", ProjectController.delete);
+routes.get("/projects", ProjectController.listAllProjects);
+
+routes.get("/projects/my-projects", ProjectController.listMyProjects);
 
 module.exports = routes;
