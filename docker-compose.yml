@@ -1,0 +1,36 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: db_zeus
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: api_zeus
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: api_zeus
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+    environment:
+      - DB_USERNAME=root
+      - PASSWORD=root
+      - HOST=mysql
+      - DIALECT=mysql
+      - DATABASE=api_zeus
+      - DB_PORT=3306
+      - SECRET_JWT=75797b464232ddc74c0ee107ae152a61
+      - SECRET_CRYPTO=e4bdb0643414df2bd6a4ddce47fbf8f5
+      - PORT=3000
+    command: yarn start
+
+volumes:
+  mysql_data:
