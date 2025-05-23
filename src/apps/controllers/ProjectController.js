@@ -121,7 +121,6 @@ class ProjectController {
 
     return res.status(200).json({ data: allProjects });
   }
-  1;
 }
 
 module.exports = new ProjectController();
