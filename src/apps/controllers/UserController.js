@@ -116,6 +116,14 @@ class UserController {
       },
     });
   }
+
+  async listAllUsers(req, res) {
+    const allUsers = await Users.findAll({
+      attributes: ["id", "user_name"],
+    });
+
+    return res.status(200).json({ data: allUsers });
+  }
 }
 
 module.exports = new UserController();
