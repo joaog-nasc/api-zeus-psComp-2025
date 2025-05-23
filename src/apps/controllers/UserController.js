@@ -119,6 +119,7 @@ class UserController {
 
   async listAllUsers(req, res) {
     const allUsers = await Users.findAll({
+      order: [["id", "DESC"]],
       attributes: ["id", "user_name"],
     });
 

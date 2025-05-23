@@ -85,6 +85,7 @@ class ProjectController {
 
   async listMyProjects(req, res) {
     const allProjects = await Projects.findAll({
+      order: [["id", "DESC"]],
       where: {
         owner_id: req.userId,
       },
@@ -108,6 +109,7 @@ class ProjectController {
 
   async listAllProjects(req, res) {
     const allProjects = await Projects.findAll({
+      order: [["id", "DESC"]],
       attributes: ["id", "title", "description", "status"],
       include: [
         {
