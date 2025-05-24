@@ -27,7 +27,7 @@ A API Zeus é uma aplicação backend construída com Node.js, Express e Sequeli
 
 ## 📃 Porque foi usado banco relacional (MySQL)
 
-Além da minha previa experiência com o MySQL, o projeto utiliza banco de dados relacional por se tratar de uma aplicação com entidades bem definidas e relacionamentos estruturados, como:
+Além da minha prévia experiência com o MySQL, o projeto utiliza banco de dados relacional por se tratar de uma aplicação com entidades bem definidas e relacionamentos estruturados, como:
 
 - Um usuário pode ter muitos projetos
 - Cada projeto pertence a um único usuário
