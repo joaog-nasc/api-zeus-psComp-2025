@@ -99,5 +99,5 @@ docker compose up --build
 **2.** Acesse:
 
 ```code
-http://localhost:3000
+http://localhost:3000/health
 ```
